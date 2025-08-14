@@ -168,3 +168,12 @@ nav a:hover {
   transition: width 1s ease;
 }
 
+.progress {
+  animation: grow 1s ease-out forwards;
+}
+
+@keyframes grow {
+  from { width: 0; }
+}
+
+
