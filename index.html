@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calisthenics Tracker</title>
+  <title>Skill Tracker</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Calisthenics Progress Tracker</h1>
-    <form id="skill-form">
-      <input type="text" id="skill-name" placeholder="Enter skill name..." required>
-      <button type="submit">Add Skill</button>
-    </form>
-    <div id="skills-list"></div>
+  <div class="app">
+    <h1>Skill Tracker</h1>
+    <div class="add-skill">
+      <input type="text" id="skillInput" placeholder="New skill...">
+      <button onclick="addSkill()">Add</button>
+    </div>
+    <div id="skillsList"></div>
   </div>
   <script src="script.js"></script>
 </body>
