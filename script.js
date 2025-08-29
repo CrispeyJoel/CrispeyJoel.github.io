@@ -61,6 +61,7 @@ function renderSkills() {
     `;
 
     if (skill.progress >= 100) {
+      skillDiv.classList.add("completed-section");
       completedList.appendChild(skillDiv);
     } else {
       inProgressList.appendChild(skillDiv);
