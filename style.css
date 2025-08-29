@@ -9,39 +9,11 @@ body {
   padding: 20px;
 }
 
-.app {
-  width: 100%;
-  max-width: 700px;
-}
-
-h1, h2 {
-  color: #0ff;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.add-skill {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.add-skill input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-}
-
-.add-skill button {
-  background: #0ff;
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 16px;
-  cursor: pointer;
-  font-weight: bold;
-}
+.app { width: 100%; max-width: 700px; }
+h1, h2 { color: #0ff; text-align: center; margin-bottom: 10px; }
+.add-skill { display: flex; gap: 10px; margin-bottom: 20px; }
+.add-skill input { flex: 1; padding: 10px; border: none; border-radius: 8px; }
+.add-skill button { background: #0ff; color: #000; border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; font-weight: bold; }
 
 .skill {
   background: #111;
@@ -50,32 +22,16 @@ h1, h2 {
   margin-bottom: 15px;
 }
 
-.skill-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+.completed-section {
+  background: #002200;
+  border: 1px solid #0f0;
 }
 
-.delete-btn {
-  background: transparent;
-  border: none;
-  color: #f55;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 14px;
-}
+.skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.delete-btn { background: transparent; border: none; color: #f55; font-weight: bold; cursor: pointer; font-size: 14px; }
+.delete-btn:hover { color: #ff0; }
 
-.delete-btn:hover {
-  color: #ff0;
-}
-
-.checkpoints {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
+.checkpoints { display: flex; flex-wrap: wrap; gap: 8px; }
 .checkpoint {
   flex: 1;
   min-width: 90px;
@@ -89,20 +45,5 @@ h1, h2 {
   font-size: 12px;
   transition: all 0.2s;
 }
-
-.checkpoint.active {
-  background: #0ff;
-  color: #000;
-  font-weight: bold;
-}
-
-.completed-section .skill {
-  background: #002200; /* dark green background */
-  border: 1px solid #0f0; /* neon green border */
-}
-
-.completed-section .checkpoint.active {
-  background: #0f0; /* neon green */
-  color: #000;
-  font-weight: bold;
-}
+.checkpoint.active { background: #0ff; color: #000; font-weight: bold; }
+.completed-section .checkpoint.active { background: #0f0; color: #000; font-weight: bold; }
