@@ -9,7 +9,7 @@ body {
   padding: 20px;
 }
 
-.app { width: 100%; max-width: 700px; }
+.app { width: 100%; max-width: 600px; } /* narrower container */
 h1, h2 { color: #0ff; text-align: center; margin-bottom: 10px; }
 .add-skill { display: flex; gap: 10px; margin-bottom: 20px; }
 .add-skill input { flex: 1; padding: 10px; border: none; border-radius: 8px; }
@@ -17,22 +17,22 @@ h1, h2 { color: #0ff; text-align: center; margin-bottom: 10px; }
 
 .skill {
   background: #111;
-  padding: 15px;
+  padding: 12px;
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
-.completed { background: #002200; border: 1px solid #0f0; }
+.completed { background: #102410; border: 1px solid #7fcf96; } /* pastel green border */
 
-.skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
 .delete-btn { background: transparent; border: none; color: #f55; font-weight: bold; cursor: pointer; font-size: 14px; }
 .delete-btn:hover { color: #ff0; }
 
-.checkpoints { display: flex; flex-wrap: wrap; gap: 8px; }
+.checkpoints { display: flex; flex-wrap: wrap; gap: 6px; }
 .checkpoint {
   flex: 1;
-  min-width: 90px;
-  padding: 8px;
+  min-width: 80px; /* slightly smaller */
+  padding: 6px;
   text-align: center;
   background: #222;
   color: #aaa;
@@ -43,4 +43,4 @@ h1, h2 { color: #0ff; text-align: center; margin-bottom: 10px; }
   transition: all 0.2s;
 }
 .checkpoint.active { background: #0ff; color: #000; font-weight: bold; }
-.completed .checkpoint.active { background: #0f0; color: #000; font-weight: bold; }
+.completed .checkpoint.active { background: #7fcf96; color: #000; font-weight: bold; } /* pastel green active */
