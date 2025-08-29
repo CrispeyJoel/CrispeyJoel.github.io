@@ -1,12 +1,8 @@
-const skillForm = document.getElementById("skill-form");
-const skillNameInput = document.getElementById("skill-name");
-const skillsList = document.getElementById("skills-list");
-
 const checkpoints = [
   { value: 0, label: "Not even close" },
-  { value: 20, label: "Easier progression" },
-  { value: 40, label: "Harder progression" },
-  { value: 60, label: "Shaky 0.5s holds" },
+  { value: 20, label: "Easier prog." },
+  { value: 40, label: "Harder prog." },
+  { value: 60, label: "Shaky holds" },
   { value: 80, label: "Longer holds" },
   { value: 100, label: "Got it" }
 ];
@@ -17,36 +13,12 @@ function saveSkills() {
   localStorage.setItem("skills", JSON.stringify(skills));
 }
 
-function renderSkills() {
-  skillsList.innerHTML = "";
-  skills.forEach((skill, index) => {
-    const card = document.createElement("div");
-    card.classList.add("skill-card");
-
-    card.innerHTML = `
-      <div class="skill-header">
-        <h2>${skill.name}</h2>
-        <button class="delete-btn" onclick="deleteSkill(${index})">✖</button>
-      </div>
-      <div class="progress-bar">
-        <div class="progress" style="width:${skill.progress}%;"></div>
-      </div>
-      <div class="checkpoints">
-        ${checkpoints.map(c => `
-          <button class="checkpoint ${skill.progress >= c.value ? "active" : ""}" 
-                  onclick="updateSkill(${index}, ${c.value})">
-            ${c.label}
-          </button>
-        `).join("")}
-      </div>
-    `;
-
-    skillsList.appendChild(card);
-  });
-}
-
-function addSkill(name) {
+function addSkill() {
+  const input = document.getElementById("skillInput");
+  const name = input.value.trim();
+  if (!name) return;
   skills.push({ name, progress: 0 });
+  input.value = "";
   saveSkills();
   renderSkills();
 }
@@ -57,19 +29,25 @@ function updateSkill(index, value) {
   renderSkills();
 }
 
-function deleteSkill(index) {
-  skills.splice(index, 1);
-  saveSkills();
-  renderSkills();
+function renderSkills() {
+  const list = document.getElementById("skillsList");
+  list.innerHTML = "";
+  skills.forEach((skill, i) => {
+    const skillDiv = document.createElement("div");
+    skillDiv.className = "skill";
+    skillDiv.innerHTML = `
+      <div class="skill-title">${skill.name}</div>
+      <div class="checkpoints">
+        ${checkpoints.map(c => `
+          <button class="checkpoint ${skill.progress === c.value ? "active" : ""}" 
+                  onclick="updateSkill(${i}, ${c.value})">
+            ${c.label}
+          </button>
+        `).join("")}
+      </div>
+    `;
+    list.appendChild(skillDiv);
+  });
 }
-
-skillForm.addEventListener("submit", e => {
-  e.preventDefault();
-  const name = skillNameInput.value.trim();
-  if (name) {
-    addSkill(name);
-    skillNameInput.value = "";
-  }
-});
 
 renderSkills();
