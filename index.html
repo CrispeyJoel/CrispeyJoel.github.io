@@ -1,47 +1,20 @@
-# index.html
-cat > index.html <<'HTML'
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Joel.dev — Calisthenics Tracker</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calisthenics Tracker</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <header class="topbar">
-      <div class="brand">Joel.dev</div>
-      <div class="top-actions">
-        <button id="export-btn" class="ghost">Export</button>
-        <button id="import-btn" class="ghost">Import</button>
-        <button id="theme-toggle" class="theme">🌙</button>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <h1>Calisthenics Tracker</h1>
-        <p class="lead">Add a skill, tap checkpoints to level up — progress is saved locally.</p>
-      </section>
-
-      <section class="add-skill">
-        <form id="new-skill-form" autocomplete="off">
-          <input id="skill-name" type="text" placeholder="New skill (e.g. Planche)" maxlength="40" required />
-          <button class="btn" type="submit">Add</button>
-        </form>
-      </section>
-
-      <section id="skills-list" class="skills-list">
-        <!-- JS renders skill cards here -->
-      </section>
-    </main>
-
-    <footer class="footer">Local only • No account needed</footer>
+    <h1>Calisthenics Progress Tracker</h1>
+    <form id="skill-form">
+      <input type="text" id="skill-name" placeholder="Enter skill name..." required>
+      <button type="submit">Add Skill</button>
+    </form>
+    <div id="skills-list"></div>
   </div>
-
-  <input type="file" id="import-file" accept="application/json" style="display:none" />
   <script src="script.js"></script>
 </body>
 </html>
-HTML
