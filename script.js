@@ -29,24 +29,42 @@ function updateSkill(index, value) {
   renderSkills();
 }
 
+function deleteSkill(index) {
+  skills.splice(index, 1);
+  saveSkills();
+  renderSkills();
+}
+
 function renderSkills() {
-  const list = document.getElementById("skillsList");
-  list.innerHTML = "";
+  const inProgressList = document.getElementById("skillsList");
+  const completedList = document.getElementById("completedList");
+  inProgressList.innerHTML = "";
+  completedList.innerHTML = "";
+
   skills.forEach((skill, i) => {
     const skillDiv = document.createElement("div");
     skillDiv.className = "skill";
+
     skillDiv.innerHTML = `
-      <div class="skill-title">${skill.name}</div>
+      <div class="skill-header">
+        <div>${skill.name}</div>
+        <button class="delete-btn" onclick="deleteSkill(${i})">✖</button>
+      </div>
       <div class="checkpoints">
         ${checkpoints.map(c => `
-          <button class="checkpoint ${skill.progress === c.value ? "active" : ""}" 
+          <button class="checkpoint ${skill.progress >= c.value ? "active" : ""}" 
                   onclick="updateSkill(${i}, ${c.value})">
             ${c.label}
           </button>
         `).join("")}
       </div>
     `;
-    list.appendChild(skillDiv);
+
+    if (skill.progress >= 100) {
+      completedList.appendChild(skillDiv);
+    } else {
+      inProgressList.appendChild(skillDiv);
+    }
   });
 }
 
