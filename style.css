@@ -96,6 +96,13 @@ h1, h2 {
   font-weight: bold;
 }
 
-.completed-section {
-  margin-top: 20px;
+.completed-section .skill {
+  background: #002200; /* dark green background */
+  border: 1px solid #0f0; /* neon green border */
+}
+
+.completed-section .checkpoint.active {
+  background: #0f0; /* neon green */
+  color: #000;
+  font-weight: bold;
 }
