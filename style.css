@@ -4,7 +4,6 @@ body {
   color: #eee;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   min-height: 100vh;
   margin: 0;
   padding: 20px;
@@ -12,13 +11,13 @@ body {
 
 .app {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
 }
 
-h1 {
-  text-align: center;
+h1, h2 {
   color: #0ff;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .add-skill {
@@ -51,9 +50,24 @@ h1 {
   margin-bottom: 15px;
 }
 
-.skill-title {
-  font-weight: bold;
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #f55;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  color: #ff0;
 }
 
 .checkpoints {
@@ -73,11 +87,15 @@ h1 {
   border-radius: 6px;
   cursor: pointer;
   font-size: 12px;
-  transition: 0.2s;
+  transition: all 0.2s;
 }
 
 .checkpoint.active {
   background: #0ff;
   color: #000;
   font-weight: bold;
+}
+
+.completed-section {
+  margin-top: 20px;
 }
