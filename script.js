@@ -1,7 +1,7 @@
 const checkpoints = [
   { value: 0, label: "Not even close" },
-  { value: 20, label: "Easier prog." },
-  { value: 40, label: "Harder prog." },
+  { value: 20, label: "2 prog. below" },
+  { value: 40, label: "1 prog below." },
   { value: 60, label: "Shaky holds" },
   { value: 80, label: "Longer holds" },
   { value: 100, label: "Got it" }
