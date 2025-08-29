@@ -1,35 +1,47 @@
-<!DOCTYPE html>
+# index.html
+cat > index.html <<'HTML'
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joel.dev - Calisthenics Tracker</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Joel.dev — Calisthenics Tracker</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="navbar">
-    <div class="logo">Joel.dev</div>
-    <button class="theme-toggle">🌙</button>
-  </header>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand">Joel.dev</div>
+      <div class="top-actions">
+        <button id="export-btn" class="ghost">Export</button>
+        <button id="import-btn" class="ghost">Import</button>
+        <button id="theme-toggle" class="theme">🌙</button>
+      </div>
+    </header>
 
-  <main>
-    <section class="hero">
-      <h1>Calisthenics Tracker</h1>
-      <p>Add skills, update progress, and everything is saved automatically.</p>
-    </section>
+    <main>
+      <section class="hero">
+        <h1>Calisthenics Tracker</h1>
+        <p class="lead">Add a skill, tap checkpoints to level up — progress is saved locally.</p>
+      </section>
 
-    <section class="add-skill">
-      <form id="new-skill-form">
-        <input id="skill-name" type="text" placeholder="New skill (e.g. Planche)" required>
-        <button type="submit" class="btn">Add</button>
-      </form>
-    </section>
+      <section class="add-skill">
+        <form id="new-skill-form" autocomplete="off">
+          <input id="skill-name" type="text" placeholder="New skill (e.g. Planche)" maxlength="40" required />
+          <button class="btn" type="submit">Add</button>
+        </form>
+      </section>
 
-    <section class="skills-section" id="skills-list">
-      <!-- Skills will load here -->
-    </section>
-  </main>
+      <section id="skills-list" class="skills-list">
+        <!-- JS renders skill cards here -->
+      </section>
+    </main>
 
+    <footer class="footer">Local only • No account needed</footer>
+  </div>
+
+  <input type="file" id="import-file" accept="application/json" style="display:none" />
   <script src="script.js"></script>
 </body>
 </html>
+HTML
