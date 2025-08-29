@@ -10,7 +10,7 @@ const checkpoints = [
 // Load skills
 let skills = JSON.parse(localStorage.getItem("skills")) || [];
 
-// ensure every skill has unique ID
+// Ensure unique IDs
 skills.forEach(s => { if(!s.id) s.id = Math.random().toString(36).substr(2,9); });
 
 function saveSkills() {
@@ -50,34 +50,34 @@ function renderSkills() {
   skills.forEach(skill => {
     const skillDiv = document.createElement("div");
     skillDiv.className = "skill";
-    if(skill.progress >= 100) skillDiv.classList.add("completed-section");
+    if(skill.progress >= 100) skillDiv.classList.add("completed");
 
-    // skill HTML
-    skillDiv.innerHTML = `
-      <div class="skill-header">
-        <div>${skill.name}</div>
-        <button class="delete-btn">✖</button>
-      </div>
-      <div class="checkpoints"></div>
-    `;
+    // Header with delete
+    const header = document.createElement("div");
+    header.className = "skill-header";
+    const title = document.createElement("div");
+    title.textContent = skill.name;
+    const delBtn = document.createElement("button");
+    delBtn.className = "delete-btn";
+    delBtn.textContent = "✖";
+    delBtn.addEventListener("click", () => deleteSkill(skill.id));
+    header.append(title, delBtn);
+    skillDiv.appendChild(header);
 
-    // delete button
-    skillDiv.querySelector(".delete-btn").addEventListener("click", () => {
-      deleteSkill(skill.id);
-    });
-
-    // add checkpoints
-    const cpContainer = skillDiv.querySelector(".checkpoints");
+    // Checkpoints
+    const cpDiv = document.createElement("div");
+    cpDiv.className = "checkpoints";
     checkpoints.forEach(cp => {
       const btn = document.createElement("button");
       btn.className = "checkpoint";
-      if(skill.progress >= cp.value) btn.classList.add("active");
       btn.textContent = cp.label;
+      if(skill.progress >= cp.value) btn.classList.add("active");
       btn.addEventListener("click", () => updateSkill(skill.id, cp.value));
-      cpContainer.appendChild(btn);
+      cpDiv.appendChild(btn);
     });
+    skillDiv.appendChild(cpDiv);
 
-    // append to proper section
+    // Append to right section
     if(skill.progress >= 100) completedList.appendChild(skillDiv);
     else inProgressList.appendChild(skillDiv);
   });
