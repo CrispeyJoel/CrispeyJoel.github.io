@@ -1,61 +1,135 @@
-# style.css
-cat > style.css <<'CSS'
-/* Neon-blue-on-black — clear, centered, checkpoints UI */
-:root{
-  --bg:#000;
-  --card:#07080a;
-  --muted:#9aa7b2;
-  --neon:#00cfff;
-  --neon2:#0078ff;
-  --glass: rgba(255,255,255,0.03);
+:root {
+  --bg: #0a0a0a;
+  --card: #111;
+  --neon: #00e0ff;
+  --text: #e0e0e0;
+  --muted: #555;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;font-family:Inter,UI-Sans-Serif,system-ui,-apple-system,'Segoe UI',Roboto,'Poppins',sans-serif;background:var(--bg);color:#e6f7ff}
-.container{max-width:880px;margin:28px auto;padding:20px}
-
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);}
-.brand{font-weight:800;color:var(--neon);font-size:1.05rem;text-shadow:0 0 10px rgba(0,207,255,0.12)}
-.top-actions{display:flex;gap:8px;align-items:center}
-.theme, .ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 10px;border-radius:10px;color:var(--muted);cursor:pointer}
-.theme{font-size:1.05rem}
-.ghost:hover,.theme:hover{color:var(--neon)}
-
-.hero{text-align:center;padding:18px 6px}
-.hero h1{margin:6px 0;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--neon);text-shadow:0 0 14px rgba(0,207,255,0.12)}
-.lead{color:var(--muted);margin:0}
-
-.add-skill{display:flex;justify-content:center;margin:18px 0}
-#new-skill-form{display:flex;gap:10px;width:100%;max-width:620px}
-#skill-name{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:var(--card);color:inherit;outline:none}
-#skill-name::placeholder{color:rgba(230,247,255,0.35)}
-.btn{background:linear-gradient(90deg,var(--neon),var(--neon2));border:none;padding:12px 16px;border-radius:12px;font-weight:700;color:#000;cursor:pointer;box-shadow:0 8px 22px rgba(0,207,255,0.10)}
-
-.skills-list{display:flex;flex-direction:column;gap:12px;padding:6px}
-.skill-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:12px;display:flex;flex-direction:column;gap:10px}
-.card-top{display:flex;align-items:center;justify-content:space-between}
-.skill-name{font-weight:700;color:var(--neon)}
-.skill-meta{display:flex;gap:8px;align-items:center}
-.small{color:var(--muted);font-size:0.9rem}
-
-.progress-wrap{width:100%;height:12px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
-.progress{height:100%;width:0;transition:width 350ms cubic-bezier(.2,.8,.2,1);background:linear-gradient(90deg,var(--neon),var(--neon2));box-shadow:0 0 14px rgba(0,207,255,0.14)}
-
-.checkpoints{display:flex;gap:8px;flex-wrap:wrap}
-.checkpoint{flex:0 0 auto;padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600;cursor:pointer}
-.checkpoint:hover{color:var(--neon)}
-.checkpoint.active{background:linear-gradient(90deg,var(--neon),var(--neon2));color:#000;box-shadow:0 6px 20px rgba(0,207,255,0.12);border:none}
-
-.card-actions{display:flex;gap:8px}
-.icon-btn{background:transparent;border:none;color:var(--muted);cursor:pointer;padding:6px;border-radius:8px}
-.icon-btn:hover{color:var(--neon)}
-
-.footer{text-align:center;color:var(--muted);margin-top:18px}
-
-/* small screen tweak */
-@media (max-width:560px){
-  .checkpoints{gap:6px}
-  .checkpoint{padding:7px 8px;font-size:0.86rem}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 2rem;
 }
-CSS
+
+.container {
+  width: 100%;
+  max-width: 700px;
+}
+
+h1 {
+  text-align: center;
+  color: var(--neon);
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+form input {
+  flex: 1;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--text);
+}
+
+form button {
+  background: var(--neon);
+  border: none;
+  color: black;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+form button:hover {
+  background: #00b4cc;
+}
+
+.skill-card {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 15px rgba(0,224,255,0.2);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.skill-header h2 {
+  font-size: 1.2rem;
+  color: var(--neon);
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.delete-btn:hover {
+  color: red;
+}
+
+.progress-bar {
+  background: #222;
+  border-radius: 6px;
+  height: 10px;
+  width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.progress {
+  background: var(--neon);
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.checkpoints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.checkpoint {
+  background: #1a1a1a;
+  border: 1px solid var(--muted);
+  color: var(--text);
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.checkpoint.active {
+  background: var(--neon);
+  color: black;
+  border-color: var(--neon);
+  box-shadow: 0 0 10px var(--neon);
+}
+
+.checkpoint:hover {
+  border-color: var(--neon);
+}
