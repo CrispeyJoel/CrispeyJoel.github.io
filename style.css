@@ -1,118 +1,61 @@
-:root {
-  --bg: #000;
-  --text: #e0e0e0;
-  --primary: #00cfff;
-  --secondary: #0078ff;
+# style.css
+cat > style.css <<'CSS'
+/* Neon-blue-on-black — clear, centered, checkpoints UI */
+:root{
+  --bg:#000;
+  --card:#07080a;
+  --muted:#9aa7b2;
+  --neon:#00cfff;
+  --neon2:#0078ff;
+  --glass: rgba(255,255,255,0.03);
 }
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,UI-Sans-Serif,system-ui,-apple-system,'Segoe UI',Roboto,'Poppins',sans-serif;background:var(--bg);color:#e6f7ff}
+.container{max-width:880px;margin:28px auto;padding:20px}
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #111;
-  color: var(--primary);
-  font-weight: 700;
-}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);}
+.brand{font-weight:800;color:var(--neon);font-size:1.05rem;text-shadow:0 0 10px rgba(0,207,255,0.12)}
+.top-actions{display:flex;gap:8px;align-items:center}
+.theme, .ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 10px;border-radius:10px;color:var(--muted);cursor:pointer}
+.theme{font-size:1.05rem}
+.ghost:hover,.theme:hover{color:var(--neon)}
 
-.theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: var(--text);
-}
+.hero{text-align:center;padding:18px 6px}
+.hero h1{margin:6px 0;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--neon);text-shadow:0 0 14px rgba(0,207,255,0.12)}
+.lead{color:var(--muted);margin:0}
 
-.hero {
-  text-align: center;
-  margin: 2rem auto;
-}
+.add-skill{display:flex;justify-content:center;margin:18px 0}
+#new-skill-form{display:flex;gap:10px;width:100%;max-width:620px}
+#skill-name{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:var(--card);color:inherit;outline:none}
+#skill-name::placeholder{color:rgba(230,247,255,0.35)}
+.btn{background:linear-gradient(90deg,var(--neon),var(--neon2));border:none;padding:12px 16px;border-radius:12px;font-weight:700;color:#000;cursor:pointer;box-shadow:0 8px 22px rgba(0,207,255,0.10)}
 
-.hero h1 {
-  font-size: 2.5rem;
-  color: var(--primary);
-  text-shadow: 0 0 10px var(--primary);
-}
+.skills-list{display:flex;flex-direction:column;gap:12px;padding:6px}
+.skill-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:12px;display:flex;flex-direction:column;gap:10px}
+.card-top{display:flex;align-items:center;justify-content:space-between}
+.skill-name{font-weight:700;color:var(--neon)}
+.skill-meta{display:flex;gap:8px;align-items:center}
+.small{color:var(--muted);font-size:0.9rem}
 
-.hero p {
-  color: #aaa;
-}
+.progress-wrap{width:100%;height:12px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
+.progress{height:100%;width:0;transition:width 350ms cubic-bezier(.2,.8,.2,1);background:linear-gradient(90deg,var(--neon),var(--neon2));box-shadow:0 0 14px rgba(0,207,255,0.14)}
 
-.add-skill {
-  text-align: center;
-  margin: 2rem 0;
-}
+.checkpoints{display:flex;gap:8px;flex-wrap:wrap}
+.checkpoint{flex:0 0 auto;padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600;cursor:pointer}
+.checkpoint:hover{color:var(--neon)}
+.checkpoint.active{background:linear-gradient(90deg,var(--neon),var(--neon2));color:#000;box-shadow:0 6px 20px rgba(0,207,255,0.12);border:none}
 
-#new-skill-form {
-  display: inline-flex;
-  gap: 0.5rem;
-}
+.card-actions{display:flex;gap:8px}
+.icon-btn{background:transparent;border:none;color:var(--muted);cursor:pointer;padding:6px;border-radius:8px}
+.icon-btn:hover{color:var(--neon)}
 
-#skill-name {
-  padding: 0.7rem 1rem;
-  border-radius: 8px;
-  border: 1px solid var(--secondary);
-  background: #111;
-  color: var(--text);
-  min-width: 200px;
-}
+.footer{text-align:center;color:var(--muted);margin-top:18px}
 
-.btn {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  border: none;
-  padding: 0.7rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  color: #000;
+/* small screen tweak */
+@media (max-width:560px){
+  .checkpoints{gap:6px}
+  .checkpoint{padding:7px 8px;font-size:0.86rem}
 }
-
-.skills-section {
-  max-width: 600px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 0 1rem;
-}
-
-.skill-card {
-  background: #111;
-  border: 1px solid #222;
-  border-radius: 12px;
-  padding: 1rem;
-}
-
-.skill-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-  color: var(--primary);
-}
-
-.progress-bar {
-  background: #222;
-  border-radius: 8px;
-  overflow: hidden;
-  height: 12px;
-}
-
-.progress {
-  height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  width: 0;
-  transition: width 0.3s ease;
-  box-shadow: 0 0 10px var(--primary);
-}
-
-.range {
-  width: 100%;
-  margin-top: 0.8rem;
-}
+CSS
