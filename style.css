@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  background: #0a0a0a;
-  color: #eee;
+  background: #121212;  /* softer black */
+  color: #ddd;          /* softer white */
   display: flex;
   justify-content: center;
   min-height: 100vh;
@@ -9,38 +9,38 @@ body {
   padding: 20px;
 }
 
-.app { width: 100%; max-width: 600px; } /* narrower container */
-h1, h2 { color: #0ff; text-align: center; margin-bottom: 10px; }
+.app { width: 100%; max-width: 600px; }
+h1, h2 { color: #88f; text-align: center; margin-bottom: 10px; } /* softer cyan */
 .add-skill { display: flex; gap: 10px; margin-bottom: 20px; }
-.add-skill input { flex: 1; padding: 10px; border: none; border-radius: 8px; }
-.add-skill button { background: #0ff; color: #000; border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; font-weight: bold; }
+.add-skill input { flex: 1; padding: 10px; border: none; border-radius: 8px; background: #1c1c1c; color: #ddd; }
+.add-skill button { background: #88f; color: #111; border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; font-weight: bold; }
 
 .skill {
-  background: #111;
+  background: #1a1a1a;  /* softer card bg */
   padding: 12px;
   border-radius: 10px;
   margin-bottom: 12px;
 }
 
-.completed { background: #102410; border: 1px solid #7fcf96; } /* pastel green border */
+.completed { background: #203220; border: 1px solid #a3d9a5; } /* softer pastel green */
 
 .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-.delete-btn { background: transparent; border: none; color: #f55; font-weight: bold; cursor: pointer; font-size: 14px; }
-.delete-btn:hover { color: #ff0; }
+.delete-btn { background: transparent; border: none; color: #f88; font-weight: bold; cursor: pointer; font-size: 14px; }
+.delete-btn:hover { color: #ffb; }
 
 .checkpoints { display: flex; flex-wrap: wrap; gap: 6px; }
 .checkpoint {
   flex: 1;
-  min-width: 80px; /* slightly smaller */
+  min-width: 80px;
   padding: 6px;
   text-align: center;
-  background: #222;
-  color: #aaa;
+  background: #2a2a2a; /* softer than before */
+  color: #bbb;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 12px;
   transition: all 0.2s;
 }
-.checkpoint.active { background: #0ff; color: #000; font-weight: bold; }
-.completed .checkpoint.active { background: #7fcf96; color: #000; font-weight: bold; } /* pastel green active */
+.checkpoint.active { background: #88f; color: #111; font-weight: bold; }
+.completed .checkpoint.active { background: #a3d9a5; color: #111; font-weight: bold; } /* pastel green */
