@@ -1,28 +1,60 @@
+/* Base colors */
 body {
   font-family: Arial, sans-serif;
-  background: #121212;  /* softer black */
-  color: #ddd;          /* softer white */
+  background: #0a0a0a;
+  color: #ddd;
   display: flex;
   justify-content: center;
   min-height: 100vh;
   margin: 0;
   padding: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-.app { width: 100%; max-width: 600px; }
-h1, h2 { color: #88f; text-align: center; margin-bottom: 10px; } /* softer cyan */
+.app { width: 100%; max-width: 600px; position: relative; z-index: 2; }
+
+/* Lens flare / glow effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 20%, rgba(0, 200, 255, 0.1), transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(0, 150, 255, 0.08), transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(0, 180, 255, 0.05), transparent 70%);
+  animation: moveBg 40s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes moveBg {
+  0% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(50px, -30px) rotate(45deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+
+/* Headings */
+h1, h2 { color: #55cfff; text-align: center; margin-bottom: 10px; }
+
+/* Add Skill Bar */
 .add-skill { display: flex; gap: 10px; margin-bottom: 20px; }
 .add-skill input { flex: 1; padding: 10px; border: none; border-radius: 8px; background: #1c1c1c; color: #ddd; }
-.add-skill button { background: #88f; color: #111; border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; font-weight: bold; }
+.add-skill button { background: #55cfff; color: #111; border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; font-weight: bold; }
 
+/* Skill Cards */
 .skill {
-  background: #1a1a1a;  /* softer card bg */
+  background: #1a1a1a;
   padding: 12px;
   border-radius: 10px;
   margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
 }
 
-.completed { background: #203220; border: 1px solid #a3d9a5; } /* softer pastel green */
+.completed { background: #203220; border: 1px solid #a3d9a5; }
 
 .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
 .delete-btn { background: transparent; border: none; color: #f88; font-weight: bold; cursor: pointer; font-size: 14px; }
@@ -34,7 +66,7 @@ h1, h2 { color: #88f; text-align: center; margin-bottom: 10px; } /* softer cyan 
   min-width: 80px;
   padding: 6px;
   text-align: center;
-  background: #2a2a2a; /* softer than before */
+  background: #2a2a2a;
   color: #bbb;
   border: none;
   border-radius: 6px;
@@ -42,5 +74,5 @@ h1, h2 { color: #88f; text-align: center; margin-bottom: 10px; } /* softer cyan 
   font-size: 12px;
   transition: all 0.2s;
 }
-.checkpoint.active { background: #88f; color: #111; font-weight: bold; }
-.completed .checkpoint.active { background: #a3d9a5; color: #111; font-weight: bold; } /* pastel green */
+.checkpoint.active { background: #55cfff; color: #111; font-weight: bold; }
+.completed .checkpoint.active { background: #a3d9a5; color: #111; font-weight: bold; }
