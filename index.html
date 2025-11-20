@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Trainer</title>
+  <title>MusicTrainer</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,34 +21,64 @@
   </header>
 
   <main>
+    <!-- Home / Dashboard -->
     <section id="home" class="tab-content active">
       <h1>Welcome to MusicTrainer</h1>
       <p>Practice sight reading, rhythm, chords, and theory all in one place.</p>
-      <p>Select a tab above to start training.</p>
+      <div class="cards-container">
+        <div class="card" data-tab="sightreading">
+          <h3>Sight Reading</h3>
+          <p>Randomized exercises tailored to your level.</p>
+        </div>
+        <div class="card" data-tab="rhythm">
+          <h3>Rhythm Training</h3>
+          <p>Clap or play randomized rhythms with visual feedback.</p>
+        </div>
+        <div class="card" data-tab="theory">
+          <h3>Theory Lessons</h3>
+          <p>Interactive music theory quizzes and exercises.</p>
+        </div>
+        <div class="card" data-tab="chords">
+          <h3>Chord Training</h3>
+          <p>Practice chord identification and progressions.</p>
+        </div>
+      </div>
     </section>
 
+    <!-- Sight Reading -->
     <section id="sightreading" class="tab-content">
       <h2>Sight Reading</h2>
-      <p>Generate random sight-reading exercises tailored to your level.</p>
-      <!-- future exercise UI goes here -->
+      <div class="exercise-panel">
+        <p>Exercise placeholder: random sheet music here</p>
+        <button>Start Exercise</button>
+      </div>
     </section>
 
+    <!-- Rhythm -->
     <section id="rhythm" class="tab-content">
       <h2>Rhythm Training</h2>
-      <p>Randomized rhythm exercises with visual and audio feedback.</p>
-      <!-- future rhythm UI -->
+      <div class="exercise-panel">
+        <p>Exercise placeholder: clap/play rhythms here</p>
+        <button>Start Exercise</button>
+      </div>
     </section>
 
+    <!-- Theory -->
     <section id="theory" class="tab-content">
       <h2>Theory Lessons</h2>
-      <p>Interactive music theory lessons and quizzes.</p>
-      <!-- future theory UI -->
+      <div class="exercise-panel">
+        <p>Exercise placeholder: quizzes, intervals, scales</p>
+        <button>Start Exercise</button>
+      </div>
     </section>
 
+    <!-- Chords -->
     <section id="chords" class="tab-content">
       <h2>Chord Training</h2>
-      <p>Practice identifying and playing chords, progressions, and inversions.</p>
-      <!-- future chord UI -->
+      <div class="exercise-panel">
+        <p>Exercise placeholder: chord identification / progressions</p>
+        <button>Start Exercise</button>
+      </div>
     </section>
   </main>
 
