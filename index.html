@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skill Tracker</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Trainer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="app">
-  <h1>Skill Tracker</h1>
+  <header>
+    <div class="logo">🎹 MusicTrainer</div>
+    <nav>
+      <ul class="nav-tabs">
+        <li data-tab="home" class="active">Home</li>
+        <li data-tab="sightreading">Sight Reading</li>
+        <li data-tab="rhythm">Rhythm</li>
+        <li data-tab="theory">Theory</li>
+        <li data-tab="chords">Chords</li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="add-skill">
-    <input type="text" id="skillInput" placeholder="New skill...">
-    <button onclick="addSkill()">Add</button>
-  </div>
+  <main>
+    <section id="home" class="tab-content active">
+      <h1>Welcome to MusicTrainer</h1>
+      <p>Practice sight reading, rhythm, chords, and theory all in one place.</p>
+      <p>Select a tab above to start training.</p>
+    </section>
 
-  <h2>In Progress</h2>
-  <div id="skillsList"></div>
+    <section id="sightreading" class="tab-content">
+      <h2>Sight Reading</h2>
+      <p>Generate random sight-reading exercises tailored to your level.</p>
+      <!-- future exercise UI goes here -->
+    </section>
 
-  <h2>Completed Skills</h2>
-  <div id="completedList"></div>
-</div>
+    <section id="rhythm" class="tab-content">
+      <h2>Rhythm Training</h2>
+      <p>Randomized rhythm exercises with visual and audio feedback.</p>
+      <!-- future rhythm UI -->
+    </section>
 
-<script src="script.js"></script>
+    <section id="theory" class="tab-content">
+      <h2>Theory Lessons</h2>
+      <p>Interactive music theory lessons and quizzes.</p>
+      <!-- future theory UI -->
+    </section>
+
+    <section id="chords" class="tab-content">
+      <h2>Chord Training</h2>
+      <p>Practice identifying and playing chords, progressions, and inversions.</p>
+      <!-- future chord UI -->
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
