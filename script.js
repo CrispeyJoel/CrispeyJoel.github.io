@@ -24,10 +24,9 @@ cards.forEach(card => {
   });
 });
 
-// Make modules clickable
+// Module click placeholder
 modules.forEach(module => {
   module.addEventListener('click', () => {
     alert(`Starting module: ${module.textContent}`);
-    // Here you can replace alert with loading the actual exercise
   });
 });
